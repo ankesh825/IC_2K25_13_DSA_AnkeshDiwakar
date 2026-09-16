@@ -199,3 +199,116 @@ Array rotated.
 
 Final array:
 40 10 25 30
+
+    
+
+//second case (formate) 
+    #include <iostream>
+using namespace std;
+
+class arr
+{
+    int ar[10], i;
+
+public:
+
+    void insert()
+    {
+        cout << "Enter 10 elements in the array" << endl;
+
+        for (i = 0; i < 10; i++)
+        {
+            cout << "Enter the element " << i + 1 << ": ";
+            cin >> ar[i];
+        }
+
+        cout << endl;
+    }
+
+    void display()
+    {
+        cout << "The array is:" << endl;
+
+        for (i = 0; i < 10; i++)
+        {
+            cout << ar[i] << " ";
+        }
+
+        cout << endl;
+    }
+
+    void deleteElement()
+    {
+        int pos;
+
+        cout << "Enter position to delete: ";
+        cin >> pos;
+
+        for (i = pos - 1; i < 9; i++)
+        {
+            ar[i] = ar[i + 1];
+        }
+
+        cout << "After deletion: ";
+
+        for (i = 0; i < 9; i++)
+        {
+            cout << ar[i] << " ";
+        }
+
+        cout << endl;
+    }
+
+    void search()
+    {
+        int value;
+
+        cout << "Enter value to search: ";
+        cin >> value;
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (ar[i] == value)
+            {
+                cout << "Element found at position " << i + 1 << endl;
+                return;
+            }
+        }
+
+        cout << "Element not found" << endl;
+    }
+};
+
+int main()
+{
+    arr s;
+
+    s.insert();
+    s.deleteElement();
+    s.display();
+    s.search();
+
+    return 0;
+}
+output:
+Enter 10 elements in the array
+Enter the element 1: 10
+Enter the element 2: 20
+Enter the element 3: 30
+Enter the element 4: 40
+Enter the element 5: 50
+Enter the element 6: 60
+Enter the element 7: 70
+Enter the element 8: 80
+Enter the element 9: 90
+Enter the element 10: 100
+
+Enter position to delete: 4
+
+After deletion: 10 20 30 50 60 70 80 90 100
+
+The array is:
+10 20 30 50 60 70 80 90 100
+
+Enter value to search: 70
+Element found at position 6
