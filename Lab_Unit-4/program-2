@@ -1,0 +1,99 @@
+// Online C++ compiler (editor)
+// Write and run C++ online using this editor.
+
+// stack without the top 
+#include <iostream> 
+using namespace std; 
+class stacky{ 
+    private: 
+     int *arr; 
+    int capacity, s[0]; 
+    public: 
+    // its constructor 
+    stacky(int cap){ 
+        capacity = cap; 
+        arr= new int[capacity]; 
+        s[0]= 0; 
+    } 
+    // empty and full functions 
+    bool isempty(){ 
+        return s[0] == 0; 
+        cout<<"stack is empty"; 
+    } 
+    bool isfull(){ 
+        return s[0] == capacity - 1; 
+         cout<<"stack is full\n"; 
+    } 
+    // push then pop 
+    void push(int x){ 
+       if (isfull()){  
+           cout<<"overflow stack\n"; 
+           return; 
+        } 
+       arr[++s[0]]= x; 
+       cout<<"we pushed a number "<<arr[s[0]]<<endl; 
+    } 
+ 
+    int pop(){ 
+        if (isempty()){ 
+            cout<<"underflow stack\n"; 
+            return -1; 
+        } 
+         cout<<"we pulled a number "; 
+        return arr[s[0]--]; 
+    } 
+ 
+    // peek 
+    int peek(){ 
+        if (isempty()){ 
+            cout<<"underflow stack\n"; 
+            return -1; 
+        }   
+         cout<<"the top number is "; 
+        return arr[s[0]]; 
+    } 
+    // display 
+void display(){ 
+    if (isempty()){ 
+            cout<<"underflow stack\n"; 
+            return; 
+        } 
+else 
+        {cout<<"\nthe stack is: "; 
+    for(int i=0; i<=s[0]; i++){ 
+        cout<<arr[i]<<endl;}}} 
+// destructor 
+~stacky(){ 
+    delete[] arr; 
+} 
+}; 
+ 
+    int main(){ 
+        stacky s(4); 
+        s.push(58); 
+        s.push(65); 
+        s.push(84); 
+        cout<<s.pop()<<endl; 
+        s.push(96); 
+        s.push(99); 
+        cout<<s.peek()<<endl; 
+        cout<<(s.isempty()? "yes": "no")<<endl; 
+        cout<<(s.isfull()? "yes": "no"); 
+        s.display(); 
+        return 0; 
+ 
+} 
+output:-
+we pushed a number 58
+we pushed a number 65
+we pushed a number 84
+we pulled a number 84
+we pushed a number 96
+overflow stack
+the top number is 96
+no
+yes
+the stack is: 0
+58
+65
+96
